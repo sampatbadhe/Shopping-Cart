@@ -1,25 +1,25 @@
 <h1>Listing orders</h1>
 
 <table>
-  <tr>
+  <tr class="list_description">
     <th>Name</th>
     <th>Address</th>
     <th>Email</th>
     <th>Pay type</th>
-    <th></th>
-    <th></th>
+    <th>Ship date</th>
     <th></th>
   </tr>
 
 <% @orders.each do |order| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= order.name %></td>
     <td><%= order.address %></td>
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= order.ship_date%></td>
+    <td class="list_actions"><%= link_to 'Show', order %>
+    <%= link_to 'Edit', edit_order_path(order) %>
+    <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -22,7 +22,7 @@ atom_feed do |feed|
 					end
 					xhtml.tr do
 						xhtml.th 'total', colspan: 2
-						xhtml.th number_to_currency \order.line_items.map(&:total_price).sum
+						xhtml.th number_to_currency order.line_items.map(&:total_price).sum
 					end
 				end
 				xhtml.p "Paid by #{order.pay_type}"

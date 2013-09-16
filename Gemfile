@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+group :production do
+	gem 'mysql2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,7 +27,7 @@ gem "jquery-rails", "~> 2.3.0"
 #gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -36,6 +39,7 @@ gem "jquery-rails", "~> 2.3.0"
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'
 
 gem 'will_paginate', '~> 3.0'
+

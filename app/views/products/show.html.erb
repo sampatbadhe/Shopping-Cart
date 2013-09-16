@@ -1,5 +1,6 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
-
+<% end %>
 <p>
   <b>Title:</b>
   <%= @product.title %>
@@ -7,7 +8,7 @@
 
 <p>
   <b>Description:</b>
-  <%= @product.description %>
+  <%= sanitize(@product.description) %>
 </p>
 
 <p>

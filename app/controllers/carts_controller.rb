@@ -1,9 +1,9 @@
 class CartsController < ApplicationController
+skip_before_filter :authorize, only: [:create, :update, :destroy]
   # GET /carts
   # GET /carts.json
   def index
     @carts = Cart.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @carts }
@@ -30,7 +30,6 @@ class CartsController < ApplicationController
   # GET /carts/new.json
   def new
     @cart = Cart.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @cart }
@@ -46,7 +45,6 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(params[:cart])
-
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
@@ -80,7 +78,6 @@ class CartsController < ApplicationController
     @cart = current_cart
     @cart.destroy
     session[:cart_id] = nil
-
     respond_to do |format|
       format.html { redirect_to store_url }
       format.json { head :no_content }
